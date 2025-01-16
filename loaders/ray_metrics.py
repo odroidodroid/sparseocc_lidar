@@ -209,11 +209,15 @@ def main_rayiou(sem_pred_list, sem_gt_list, lidar_origin_list, occ_class_names):
     table.float_format = '.3'
 
     for i in range(len(occ_class_names) - 1):
+        # table.add_row([
+        #     occ_class_names[i],
+        #     iou_list[0][i], iou_list[1][i], iou_list[2][i]
+        # ], divider=(i == len(occ_class_names) - 2))
         table.add_row([
             occ_class_names[i],
             iou_list[0][i], iou_list[1][i], iou_list[2][i]
-        ], divider=(i == len(occ_class_names) - 2))
-    
+        ])
+
     table.add_row(['MEAN', rayiou_0, rayiou_1, rayiou_2])
 
     print(table)
